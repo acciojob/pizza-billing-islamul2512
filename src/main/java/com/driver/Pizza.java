@@ -2,10 +2,10 @@ package com.driver;
 
 public class Pizza {
 
-    protected boolean isVeg;
-    protected boolean extraCheeseAdded;
-    protected boolean toppingsAdded;
-    protected boolean paperBagAdded;
+    public boolean isVeg;
+    public boolean extraCheeseAdded;
+    public boolean toppingsAdded;
+    public boolean paperBagAdded;
 
     public Pizza(boolean isVeg) {
         this.isVeg = isVeg;
