@@ -2,33 +2,61 @@ package com.driver;
 
 public class Pizza {
 
-    private int price;
-    private Boolean isVeg;
-    private String bill;
+    protected boolean isVeg;
+    protected boolean extraCheeseAdded;
+    protected boolean toppingsAdded;
+    protected boolean paperBagAdded;
 
-    public Pizza(Boolean isVeg){
+    public Pizza(boolean isVeg) {
         this.isVeg = isVeg;
-        // your code goes here
     }
 
-    public int getPrice(){
-        return this.price;
+    public void addExtraCheese() {
+        if (!extraCheeseAdded) {
+            extraCheeseAdded = true;
+            System.out.println("Extra Cheese Added: 80");
+        } else {
+            System.out.println("Extra Cheese already added.");
+        }
     }
 
-    public void addExtraCheese(){
-        // your code goes here
+    public void addExtraToppings() {
+        if (!toppingsAdded) {
+            toppingsAdded = true;
+            int toppingsPrice = (isVeg) ? 70 : 120;
+            System.out.println("Extra Toppings Added: " + toppingsPrice);
+        } else {
+            System.out.println("Extra Toppings already added.");
+        }
     }
 
-    public void addExtraToppings(){
-        // your code goes here
+    public void addPaperBag() {
+        if (!paperBagAdded) {
+            paperBagAdded = true;
+            System.out.println("Paperbag Added: 20");
+        } else {
+            System.out.println("Paperbag already added.");
+        }
     }
 
-    public void addTakeaway(){
-        // your code goes here
-    }
+    public void generateBill() {
+        //System.out.println("Base Price Of The Pizza: " + basePrice);
+        int basePrice = (isVeg) ? 300 : 400;
+        int total = basePrice;
 
-    public String getBill(){
-        // your code goes here
-        return this.bill;
+        System.out.println("Base Price Of The Pizza: " + basePrice);
+
+        if (extraCheeseAdded) {
+            total += 80;
+        }
+        if (toppingsAdded) {
+            total += (isVeg) ? 70 : 120;
+        }
+        if (paperBagAdded) {
+            total += 20;
+        }
+
+        System.out.println("Total Price: " + total);
+        System.out.println();
     }
 }
